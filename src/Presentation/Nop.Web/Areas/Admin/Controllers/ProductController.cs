@@ -242,6 +242,9 @@ namespace Nop.Web.Areas.Admin.Controllers
                     x => x.Name,
                     localized.Name,
                     localized.LanguageId);
+
+                var seName = productTag.ValidateSeName("", localized.Name, true);
+                _urlRecordService.SaveSlug(productTag, seName, localized.LanguageId);
             }
         }
 
